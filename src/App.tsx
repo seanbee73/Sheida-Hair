@@ -62,8 +62,22 @@ export default function App() {
   // Persistence state for Hair Services & Pricing
   const [services, setServices] = useState<HairService[]>(() => {
     try {
-      const saved = localStorage.getItem('the_maze_services');
-      return saved ? JSON.parse(saved) : INITIAL_SERVICES;
+      const saved = localStorage.getItem('sheida_services_v2') || localStorage.getItem('the_maze_services');
+      if (saved) {
+        const parsed: HairService[] = JSON.parse(saved);
+        return parsed.map((item) => {
+          const defaultItem = INITIAL_SERVICES.find((s) => s.id === item.id);
+          if (defaultItem) {
+            return {
+              ...item,
+              description: defaultItem.description,
+              features: defaultItem.features,
+            };
+          }
+          return item;
+        });
+      }
+      return INITIAL_SERVICES;
     } catch {
       return INITIAL_SERVICES;
     }

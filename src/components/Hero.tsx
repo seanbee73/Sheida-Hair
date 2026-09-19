@@ -9,7 +9,7 @@ export const Hero: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=2000')`,
+            backgroundImage: `url('https://ik.imagekit.io/kevfun/701538088_17925562293334933_821170900421080344_n.jpg')`,
             backgroundPosition: 'center 35%',
           }}
         ></div>
