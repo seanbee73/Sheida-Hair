@@ -1,0 +1,6 @@
+{
+  "name": "Sheida Hair Studio | Toronto's Premier Hair & Colour Specialists",
+  "description": "Sheida Hair Studio in North York, Toronto (124 Willowdale Ave). Renowned master colorists specializing in balayage, zero-damage blonding, precision haircuts with Haik, keratin treatments, and hair botox.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,909 @@
+import { BookingInquiry, HairService, PortfolioItem, ReviewItem, StylistProfile } from '../types';
+
+export const SALON_INFO = {
+  name: 'Sheida Hair Studio',
+  tagline: "Toronto's Premier Hair Studio & Colour Specialists",
+  established: '20+ Years Master Artistry',
+  yearsInBusiness: '20+ Years in Toronto',
+  rating: 4.9,
+  reviewCount: '503+ Google Reviews (4.9 ★) • 1,380+ Community Followers',
+  phone: '(416) 209-8060',
+  phoneRaw: '4162098060',
+  email: 'info@sheidahair.com',
+  website: 'sheidahair.com',
+  instagram: '@sheida.hairstudio',
+  instagramColorist: '@sheida.haircolorist',
+  address: '124 Willowdale Ave, North York, ON M2N 4Y2, Canada',
+  subLocation: 'Sheida Hair Studio & Academy • Willowdale, North York',
+  transit: 'TTC Line 1 (Yonge-University) & Line 4 (Sheppard Subway), Willowdale Ave Bus routes',
+  parking: 'Free plaza parking for guests & convenient Willowdale Ave parking',
+  hours: [
+    { day: 'Monday', hours: 'Closed (VIP / Academy by request)' },
+    { day: 'Tuesday', hours: '10:00 AM - 7:00 PM' },
+    { day: 'Wednesday', hours: '10:00 AM - 7:00 PM' },
+    { day: 'Thursday', hours: '10:00 AM - 7:00 PM' },
+    { day: 'Friday', hours: '10:00 AM - 7:00 PM' },
+    { day: 'Saturday', hours: '10:00 AM - 7:00 PM' },
+    { day: 'Sunday', hours: 'Closed' },
+  ],
+  amenities: [
+    {
+      icon: 'solar:shield-check-linear',
+      title: 'Bleach Test & Strand Diagnostics',
+      desc: 'Mandatory strand health check before chemical treatments to guarantee zero damage',
+    },
+    {
+      icon: 'solar:cup-hot-linear',
+      title: 'Artisan Espresso & Persian Tea',
+      desc: 'Complimentary specialty coffee brewed fresh by Nima, fragrant tea, and cold refreshments',
+    },
+    {
+      icon: 'solar:star-fall-minimalistic-2-linear',
+      title: 'Master-Level Team Division',
+      desc: 'Dedicated color masters (Sheida, Niloufar, Hana) and cutting specialists (Haik)',
+    },
+    {
+      icon: 'solar:magic-stick-3-linear',
+      title: 'Milbon & Bond-Builder Care',
+      desc: 'Japanese luxury 5-step treatments and keratin botox for restored hair health',
+    },
+    {
+      icon: 'solar:smile-circle-linear',
+      title: 'Warm Welcoming Atmosphere',
+      desc: 'Chic, calm, modern neutral studio vibe praised by over 500+ happy clients',
+    },
+    {
+      icon: 'solar:card-linear',
+      title: 'Flexible Payment & Online Booking',
+      desc: 'Mangomint online booking, credit/debit, e-transfer, and PayPal accepted',
+    },
+  ],
+};
+
+export const INITIAL_SERVICES: HairService[] = [
+  // Haircuts with Haik (Master Stylist)
+  {
+    id: 'srv_haik_cut',
+    name: 'Haircut & Blowdry with Haik',
+    category: 'Haircuts with Haik',
+    priceEstimate: '$120+',
+    duration: '60 mins',
+    description:
+      'Master precision haircut tailored to your face shape, hair density, and lifestyle by Master Stylist Haik. Includes clarifying wash, soothing scalp massage, custom framing layers, and a phenomenal blowout.',
+    features: [
+      'Personalized facial bone framing',
+      'Curtain bangs & butterfly layers',
+      'Curly & straight hair expertise',
+      'Full blowout & hot tool finish',
+    ],
+    popular: true,
+  },
+
+  // Color Services (Consultation Needed)
+  {
+    id: 'srv_full_highlights',
+    name: 'Full Highlights & Babylights',
+    category: 'Color Services',
+    priceEstimate: '$500+',
+    duration: '3.5 - 4.5 hrs',
+    description:
+      'Full-head micro-weave foil placement for maximum luminous brightness from root to tip. Crafted with bond protection and personalized gloss toner for seamless, natural blending.',
+    features: [
+      'Full head precision micro-foils',
+      'Damage-free gentle lifting',
+      'Custom gloss toner formulation',
+      'Deep moisture post-color seal',
+    ],
+    popular: true,
+  },
+  {
+    id: 'srv_balayage',
+    name: 'Signature Dimensional Balayage',
+    category: 'Color Services',
+    priceEstimate: '$400+',
+    duration: '3.5 - 4.5 hrs',
+    description:
+      'Hand-painted gradient transitions created by Sheida and her senior color team. Delivers soft, natural dimension with a seamless shadow root for effortlessly low-maintenance grow-out.',
+    features: [
+      'Freehand bespoke hand-painting',
+      'Seamless shadow root melt',
+      'No harsh lines of demarcation',
+      'Includes custom toner & gloss glaze',
+    ],
+    popular: true,
+  },
+  {
+    id: 'srv_bleach_blonding',
+    name: 'Bleach & Full Blonding Transformation',
+    category: 'Color Services',
+    priceEstimate: '$500+',
+    duration: '4 - 6 hrs',
+    description:
+      'All-over high-lift lightening to achieve pure platinum, icy vanilla, or pearlescent blonde without compromising hair health. Includes mandatory strand test diagnosis.',
+    features: [
+      'Mandatory pre-lightening strand test',
+      'Maximum lift with zero breakage',
+      'Plex bond-protecting infusion',
+      'Custom silver / beige / pearl toner',
+    ],
+    popular: true,
+  },
+  {
+    id: 'srv_root_touchup',
+    name: 'Root Touch-Up & Gray Coverage',
+    category: 'Color Services',
+    priceEstimate: '$100+',
+    duration: '90 mins',
+    description:
+      'Precise single-process root color application for 100% seamless gray coverage or base tone maintenance that seamlessly matches mid-lengths.',
+    features: [
+      '100% opaque gray coverage',
+      'Scalp barrier soothing application',
+      'Accurate tone matching',
+      'Clarifying wash & shine rinse',
+    ],
+  },
+  {
+    id: 'srv_root_toner',
+    name: 'Root Color + Gloss Toner',
+    category: 'Color Services',
+    priceEstimate: '$150+',
+    duration: '2 hrs',
+    description:
+      'Complete root regrowth coloring combined with an all-over tonal gloss glaze to refresh previous highlights, eliminate brassiness, and restore mirror shine.',
+    features: [
+      'Root coverage + all-over glaze',
+      'Neutralizes brassy yellow tones',
+      'Adds luminous prismatic shine',
+      'Deep conditioning treatment',
+    ],
+  },
+  {
+    id: 'srv_partial_highlights',
+    name: 'Partial Highlights & Face-Framing Foil',
+    category: 'Color Services',
+    priceEstimate: '$400+',
+    duration: '2.5 - 3.5 hrs',
+    description:
+      'Targeted foil placement focusing on the crown, parting, and face-framing money pieces for an instant brightening boost between full color sessions.',
+    features: [
+      'Crown & T-zone foil placement',
+      'Illuminating face-frame accents',
+      'Custom toning included',
+      'Gentle lifting formula',
+    ],
+  },
+  {
+    id: 'srv_creative_color',
+    name: 'Creative / Fantasy & Pastel Color',
+    category: 'Color Services',
+    priceEstimate: '$300+',
+    duration: '3.5 - 5 hrs',
+    description:
+      'Custom vibrant shades, smoky lilacs, rose gold, or multi-tonal creative pastels formulated with gentle pre-lightening and rich vivid pigments.',
+    features: [
+      'Vibrant / pastel custom formulation',
+      'Safe multi-level clean lift',
+      'Color longevity locking mask',
+      'Home color-care guidance',
+    ],
+  },
+  {
+    id: 'srv_color_correction',
+    name: 'Master Color Correction',
+    category: 'Color Services',
+    priceEstimate: '$500+',
+    duration: '4 - 6 hrs',
+    description:
+      'Comprehensive restorative correction for uneven home dye, patchy tones, or color accidents from other salons. Sheida diagnoses every section with extreme care.',
+    features: [
+      'Band & patchiness removal',
+      'Tone neutralization & balancing',
+      'Intensive hair fiber reconstruction',
+      'Step-by-step restoration plan',
+    ],
+  },
+  {
+    id: 'srv_vip_color',
+    name: 'VIP Bespoke Color Package',
+    category: 'Color Services',
+    priceEstimate: '$1,000+',
+    duration: 'Full Day',
+    description:
+      'The ultimate total luxury transformation experience with Sheida personally. Includes all lightening, full-day dedicated chair, Milbon treatment, haircut, and premium styling.',
+    features: [
+      'Dedicated one-on-one master chair',
+      'Complete color & blonding redesign',
+      'Milbon 5-step luxury treatment',
+      'Precision cut & photoshoot styling',
+    ],
+  },
+  {
+    id: 'srv_consultation',
+    name: 'Haircolor Consultation + Strand Test',
+    category: 'Color Services',
+    priceEstimate: '$0',
+    duration: '30 mins',
+    description:
+      'Complimentary one-on-one session to inspect hair elasticity, test porosity, review inspiration photos, and perform a real bleach strand test before booking.',
+    features: [
+      '100% complimentary & honest',
+      'Real bleach test on hair strand',
+      'Exact price & timing quote',
+      'Personalized tone recommendation',
+    ],
+    popular: true,
+  },
+
+  // Team Haircuts & Styling
+  {
+    id: 'srv_team_cut',
+    name: 'Team Haircut & Blowdry (Women · 16+)',
+    category: 'Team Haircuts & Styling',
+    priceEstimate: '$80+',
+    duration: '60 mins',
+    description:
+      'Expert haircut performed by Sheida Hair Studio senior styling artists. Includes relaxing wash, scalp massage, tailored layering, and blowout.',
+    features: [
+      'Custom length & texture balance',
+      'Scalp massage shampoo',
+      'Face framing cut',
+      'Blowdry style finish',
+    ],
+  },
+  {
+    id: 'srv_blowdry_hottool',
+    name: 'Blowdry + Hot Tool Finish',
+    category: 'Team Haircuts & Styling',
+    priceEstimate: '$60+',
+    duration: '45 mins',
+    description:
+      'Voluminous round-brush blowout finished with beach waves, glam Hollywood curls, or pin-straight sleek glass styling with heat shield protection.',
+    features: [
+      'Long-lasting bounce & volume',
+      'Curling wand or flat iron finish',
+      'Frizz-taming serum application',
+      'Ideal for events & occasions',
+    ],
+  },
+  {
+    id: 'srv_wash_blowdry',
+    name: 'Wash & Classic Blowdry',
+    category: 'Team Haircuts & Styling',
+    priceEstimate: '$50+',
+    duration: '30 mins',
+    description:
+      'Invigorating scalp cleanse and conditioning treatment followed by a professional smooth blowdry with natural movement.',
+    features: [
+      'Scalp cleansing & conditioning',
+      'Smooth round-brush styling',
+      'Lightweight thermal shield',
+    ],
+  },
+
+  // Hair Treatments (Consultation Needed)
+  {
+    id: 'srv_milbon',
+    name: 'Milbon 5-Step Japanese Moisture Treatment',
+    category: 'Hair Treatments',
+    priceEstimate: '$100',
+    duration: '45 mins',
+    description:
+      'World-renowned Japanese salon treatment that repairs the hair cortex with micro-collagen and botanical oils, restoring incredible silkiness and weightless shine.',
+    features: [
+      '5-step sequential layering system',
+      'Locks in post-color shine',
+      'Repairs chemical & thermal damage',
+      'Includes at-home booster vials',
+    ],
+    popular: true,
+  },
+  {
+    id: 'srv_keratin',
+    name: 'Keratin Smoothing Treatment',
+    category: 'Hair Treatments',
+    priceEstimate: '$400+',
+    duration: '2.5 - 3.5 hrs',
+    description:
+      'Eliminates 95% of frizz, seals compromised cuticles, and transforms unruly or coarse textures into glossy, wash-and-wear silk for 4 to 5 months.',
+    features: [
+      'Humidity-proof glass finish',
+      'Formaldehyde-safe premium formula',
+      'Cuts daily blowdry time in half',
+      'Lasts up to 5 months',
+    ],
+    popular: true,
+  },
+  {
+    id: 'srv_hair_botox',
+    name: 'Hair Botox & Protein Rebuild',
+    category: 'Hair Treatments',
+    priceEstimate: '$400+',
+    duration: '2.5 - 3.5 hrs',
+    description:
+      'Intense non-chemical deep conditioning treatment packed with amino acids, caviar oil, and collagen that fills in damaged fiber gaps without altering your natural curl pattern.',
+    features: [
+      'Restores elasticity & thickness',
+      'Zero harsh chemical fumes',
+      'Deep post-bleach recovery',
+      'Keeps natural curls intact & bouncy',
+    ],
+    popular: true,
+  },
+  {
+    id: 'srv_hydration_spa',
+    name: 'Deep Hair Hydration Spa',
+    category: 'Hair Treatments',
+    priceEstimate: '$85+',
+    duration: '45 mins',
+    description:
+      'Targeted moisture infusion with warm towel wrap and acupressure scalp massage to relieve dryness and bring dull locks back to vibrant health.',
+    features: [
+      'Deep moisture mask',
+      'Aromatherapy warm towel wrap',
+      'Relaxing scalp stimulation',
+      'Silk gloss rinse',
+    ],
+  },
+];
+
+export const INITIAL_PORTFOLIO: PortfolioItem[] = [
+  {
+    id: 'p_silver_blonde',
+    title: 'Silver Blonde Seamless Balayage & Tonal Melt',
+    category: 'Balayage & Ombre',
+    stylist: 'Sheida (Master Colorist) & Niloufar',
+    image: 'https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Naturally dark brunette with previous brassy warm tones',
+    technique: 'Pre-bleach strand test + babylight foil hand-paint + custom icy silver-pearl glaze',
+    summary: 'Achieved a radiant, high-contrast cool silver blonde while keeping the hair 100% healthy and silky.',
+    details:
+      'Sheida performed a careful strand diagnosis first. We lifted the base evenly through multiple gentle stages, applied bond multipliers to protect hair integrity, and finished with a custom cool silver toner that seamlessly transitions from a soft shadow root.',
+    tags: ['Silver Blonde', 'Balayage', 'Zero Damage', 'Root Melt'],
+    metrics: [
+      { label: 'Lift Level', value: 'Level 10 Clean' },
+      { label: 'Hair Health', value: '0% Breakage' },
+      { label: 'Tone Longevity', value: '12+ Weeks' },
+    ],
+  },
+  {
+    id: 'p_warm_blonde_highlight',
+    title: 'Warm Honey Blonde Dimensional Highlights',
+    category: 'Highlights & Blonding',
+    stylist: 'Sheida & Hana',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Medium brown hair wanting soft, sun-kissed brightness with depth',
+    technique: 'Micro-foil babylights + face-framing money pieces + warm beige toner',
+    summary: 'Ultra-fine dimensional ribbons of gold and butterscotch with soft face-framing contour.',
+    details:
+      'Hana and Sheida worked in synergy to weave micro-fine foils around the crown and perimeter. The warm champagne and honey tones complement warm skin tones beautifully, leaving the hair bouncing with natural radiance.',
+    tags: ['Honey Blonde', 'Babylights', 'Face Framing', 'Luminous'],
+    metrics: [
+      { label: 'Dimension', value: 'Multi-Tonal' },
+      { label: 'Maintenance', value: 'Low Grow-Out' },
+      { label: 'Shine Factor', value: 'High Gloss' },
+    ],
+  },
+  {
+    id: 'p_haik_butterfly_cut',
+    title: 'Precision Butterfly Layers & Curtain Bangs',
+    category: 'Precision Cuts',
+    stylist: 'Haik (Master Stylist)',
+    image: 'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1584297091622-af8e5fd63319?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Thick, heavy long hair needing volume, shape, and movement',
+    technique: 'Precision scissor carving + face-framing sweep + bouncy round-brush blowout',
+    summary: 'Sculpted weightless layers that bounce effortlessly with zero heavy styling needed at home.',
+    details:
+      'Haik listened carefully to preserve total length while carving internal layers to remove weight. The curtain bangs sweep seamlessly across the cheekbones, creating a dynamic silhouette that transitions effortlessly from straight to curl.',
+    tags: ['Precision Cut', 'Butterfly Layers', 'Curtain Bangs', 'Haik Signature'],
+    metrics: [
+      { label: 'Weight Removed', value: '35%' },
+      { label: 'Daily Styling', value: '5 mins' },
+      { label: 'Volume Boost', value: 'Double Body' },
+    ],
+  },
+  {
+    id: 'p_mushroom_blonde',
+    title: 'Mushroom Blonde & Ashy Cool Balayage',
+    category: 'Balayage & Ombre',
+    stylist: 'Niloufar (Nisa) & Sheida',
+    image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Dark hair wanting a neutral-cool earthy ash blend with soft transitions',
+    technique: 'Seamless teasing balayage + mushroom cool tone glaze + Milbon moisture seal',
+    summary: 'The beauty of mushroom blonde in soft highlights, natural depth, and custom tone.',
+    details:
+      'Niloufar blended delicate ribbon highlights through the mid-lengths. The cool earthy tones counteract brassiness completely, yielding a sophisticated taupe-ash gradient that looks rich under both sunlight and indoor studio lighting.',
+    tags: ['Mushroom Blonde', 'Cool Ash', 'Tonal Melt', 'Milbon Glow'],
+    metrics: [
+      { label: 'Brass Cancel', value: '100% Cool' },
+      { label: 'Blend Softness', value: 'Flawless' },
+      { label: 'Longevity', value: '14+ Weeks' },
+    ],
+  },
+  {
+    id: 'p_platinum_bleach',
+    title: 'Platinum Blonde Full Bleach with Zero Damage',
+    category: 'Highlights & Blonding',
+    stylist: 'Sheida (Master Colorist) & Mitra',
+    image: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Fine, delicate hair desiring all-over icy platinum blonde',
+    technique: 'Pre-bleach test + low-volume controlled lift + Bond Builder + pearlescent gloss',
+    summary: 'Zero breakage platinum lift that left delicate hair softer and shinier than before.',
+    details:
+      'Sheida took over 5 hours of patient, meticulous micro-sectioning. By checking elasticity at every stage and using low-and-slow developer formulation, the hair achieved a clean Nordic platinum with 0% breakage or scalp irritation.',
+    tags: ['Platinum Bleach', 'Zero Damage', 'Icy Blonde', 'Sheida Master'],
+    metrics: [
+      { label: 'Lift Cleanliness', value: 'Level 10 Pure' },
+      { label: 'Scalp Comfort', value: '100% Gentle' },
+      { label: 'Porosity Check', value: 'Elastic & Silky' },
+    ],
+  },
+  {
+    id: 'p_botox_rebuild',
+    title: 'Hair Botox & Protein Restorative Therapy',
+    category: 'Hair Treatments',
+    stylist: 'Parisa (Treatment Director)',
+    image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Severely dry, brittle post-bleach hair with split ends',
+    technique: 'Nano-amino acid infusion + deep thermal seal + Milbon moisture infusion',
+    summary: 'Restored elasticity, eliminated frizz, and resurrected silky smoothness from root to tip.',
+    details:
+      'Parisa customized a non-chemical Botox & protein rebuild formula to fill in damaged cortical gaps. The client walked out with lustrous, mirror-like hair that stays soft, shiny, and tangle-free for months.',
+    tags: ['Hair Botox', 'Protein Rebuild', 'Restorative Care', 'Silky Frizz-Free'],
+    metrics: [
+      { label: 'Frizz Reduced', value: '95%' },
+      { label: 'Softness Boost', value: '5X Softer' },
+      { label: 'Treatment Hold', value: '4 Months' },
+    ],
+  },
+  {
+    id: 'p_caramel_mocha',
+    title: 'Caramel Mocha Rich Balayage & Gloss',
+    category: 'Balayage & Ombre',
+    stylist: 'Maryam & Sheida',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Deep natural espresso hair seeking warm caramel dimension',
+    technique: 'Freehand contour painting + chocolate mocha toner + blowout curl finish',
+    summary: 'Warm, rich dimensional ribbons that catch the light effortlessly on dark hair.',
+    details:
+      'A favorite for clients who love rich brunettes. Maryam hand-painted caramel swirls through the mid-lengths and face-frame, creating radiant depth without stark brassiness.',
+    tags: ['Caramel Balayage', 'Brunette Dimension', 'Mocha Gloss', 'Natural Shine'],
+    metrics: [
+      { label: 'Contrast', value: 'Soft & Natural' },
+      { label: 'Glow Effect', value: 'Sunlit Warmth' },
+      { label: 'Hair Vitality', value: 'Pristine' },
+    ],
+  },
+  {
+    id: 'p_curly_cut_haik',
+    title: 'Curly Hair Shaping & Volumizing Cut',
+    category: 'Precision Cuts',
+    stylist: 'Haik (Master Stylist)',
+    image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1200',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1584297091622-af8e5fd63319?auto=format&fit=crop&q=80&w=1200',
+    ],
+    clientHairType: 'Naturally curly/wavy hair prone to triangle heaviness',
+    technique: 'Dry curl-by-curl architectural cut + hydration wash + diffuser bounce finish',
+    summary: 'Defined curls with weightless spring and flattering round crown silhouette.',
+    details:
+      'Haik is celebrated across Toronto for his curl expertise. By respecting the natural curl pattern and avoiding blunt chops, curls fall into place naturally with defined bounce and zero frizz.',
+    tags: ['Curly Hair', 'Curl Specialist', 'Haik Cut', 'Bouncy Definition'],
+    metrics: [
+      { label: 'Curl Definition', value: 'Springy & Soft' },
+      { label: 'Triangle Shape', value: 'Eliminated' },
+      { label: 'Client Review', value: 'Best Curly Cut' },
+    ],
+  },
+];
+
+export const STYLISTS_TEAM: StylistProfile[] = [
+  {
+    id: 'st_sheida',
+    name: 'Sheida',
+    role: 'Founder & Master Hair Colorist',
+    experience: '20+ Years in Toronto',
+    languages: ['English', 'Persian (Farsi)'],
+    specialty: [
+      'Zero-Damage Blonding',
+      'Signature Balayage',
+      'Color Correction',
+      'Bleach Strand Testing',
+      'Custom Toners',
+    ],
+    bio: 'Founder of Sheida Hair Studio with over two decades of hair artistry in Toronto. Renowned for her strict commitment to hair health, patient diagnostics, and creating breathtaking blonde and balayage transformations without a single compromised strand.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600',
+    rating: 5.0,
+    reviewCount: 280,
+  },
+  {
+    id: 'st_haik',
+    name: 'Haik (Hayk)',
+    role: 'Master Stylist & Precision Cutting Director',
+    experience: '15+ Years Master Craft',
+    languages: ['English', 'Armenian', 'Russian', 'Persian'],
+    specialty: [
+      'Precision Haircuts',
+      'Butterfly & Face-Framing Layers',
+      'Curtain Bangs',
+      'Curly & South Asian Hair',
+      'Phenomenal Blowouts',
+    ],
+    bio: 'Regarded by hundreds of reviews as one of the finest haircutters in Canada. Known for his attentive listening, speed, delicate hands, relaxing head massage, and ability to give clients the exact flattering shape they envisioned.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600',
+    rating: 4.9,
+    reviewCount: 195,
+  },
+  {
+    id: 'st_niloufar',
+    name: 'Niloufar (Nisa / Nilo)',
+    role: 'Senior Balayage & Highlight Specialist',
+    experience: '8+ Years Experience',
+    languages: ['English', 'Persian'],
+    specialty: [
+      'Seamless Balayage',
+      'Foil Highlights & Babylights',
+      'Patchiness Correction',
+      'Root Shading',
+    ],
+    bio: 'Beloved by clients for her warmth, patience, and meticulous foil weaving. Niloufar creates silky, luminous blonde gradients that stay vibrant and fresh even after dozens of washes.',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600',
+    rating: 4.9,
+    reviewCount: 140,
+  },
+  {
+    id: 'st_hana',
+    name: 'Hana (Hannah)',
+    role: 'Senior Stylist & Platinum Blonding Artist',
+    experience: '9+ Years Experience',
+    languages: ['English', 'Persian'],
+    specialty: [
+      'Dark-to-Blonde Transformations',
+      'Clean Platinum Lift',
+      'Dimensional Foils',
+      'Face Framing',
+    ],
+    bio: 'Specializes in the delicate art of turning dark hair into luminous, natural blonde without brass or overprocessing. Clients love her calm, focused energy and precision.',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600',
+    rating: 4.9,
+    reviewCount: 112,
+  },
+  {
+    id: 'st_parisa',
+    name: 'Parisa',
+    role: 'Hair Treatment Director & Keratin Specialist',
+    experience: '8+ Years Experience',
+    languages: ['English', 'Persian'],
+    specialty: [
+      'Hair Botox Rebuild',
+      'Keratin Smoothing Therapy',
+      'Milbon 5-Step Moisture',
+      'Deep Hair Hydration',
+    ],
+    bio: 'Dedicated to resurrecting dry, chemically stressed hair. Parisa explains every step of the restorative journey, leaving strands silky, nourished, and glowing with vitality.',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600',
+    rating: 4.9,
+    reviewCount: 88,
+  },
+  {
+    id: 'st_mitra',
+    name: 'Mitra',
+    role: 'Senior Colorist & Bleach Specialist',
+    experience: '10+ Years Experience',
+    languages: ['English', 'Persian'],
+    specialty: [
+      'Damage-Free Bleach',
+      'High-Lift Highlights',
+      'Tonal Glazing',
+      'Scalp Protection',
+    ],
+    bio: 'Expert in delicate lightening chemistry. Works in close consultation with Sheida to make sure high-lift blondes remain silky, soft, and completely healthy.',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=600',
+    rating: 4.9,
+    reviewCount: 76,
+  },
+  {
+    id: 'st_maryam',
+    name: 'Maryam & Mastooreh',
+    role: 'Senior Colorists & Styling Artists',
+    experience: '7+ Years Experience',
+    languages: ['English', 'Persian'],
+    specialty: [
+      'Caramel Mocha Balayage',
+      'Tonal Harmonization',
+      'Event Blowouts',
+      'Gloss Glazes',
+    ],
+    bio: 'Known for artistic eye and gentle touch, crafting luminous dimension and customized shades that complement each client’s unique skin tone.',
+    image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=600',
+    rating: 4.9,
+    reviewCount: 65,
+  },
+  {
+    id: 'st_donya_nema',
+    name: 'Donya & Nema',
+    role: 'Guest Experience & Studio Management',
+    experience: 'Hospitality Leads',
+    languages: ['English', 'Persian'],
+    specialty: [
+      'Guest Hospitality',
+      'Artisan Coffee & Tea Service',
+      'Scheduling & Coordination',
+      'Care Consultations',
+    ],
+    bio: 'The welcoming heart of Sheida Hair Studio. Ensuring every client receives personalized attention, seamless appointments, and Nima’s famous delicious espresso from the moment they arrive.',
+    image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=600',
+    rating: 5.0,
+    reviewCount: 150,
+  },
+];
+
+export const REAL_REVIEWS: ReviewItem[] = [
+  {
+    id: 'rev_sheida_1',
+    author: 'Niloofar Heirani',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '4 months ago',
+    stylistMentioned: 'Sheida & Niloufar',
+    serviceMentioned: 'Balayage & Bleach Test',
+    content:
+      'I had such a lovely experience with Sheida and Niloofar! They did my balayage and I honestly couldn’t be happier with how my hair turned out. What I really appreciated was how careful and honest they were throughout the whole process. Sheida made sure to do a bleach test first and didn’t start anything until she saw how my hair reacted and knew it wouldn’t get damaged. Both were so sweet, welcoming, and professional!',
+    positivePoints: [
+      'Mandatory bleach strand test',
+      '0% damage care',
+      'Honest consultation',
+      'Welcoming hospitality',
+    ],
+    ownerResponse:
+      'Thank you so much Niloofar joon for taking the time to share this beautiful review and photo! We’re so happy you felt comfortable and cared for throughout the whole process. Loved having you in the salon.',
+  },
+  {
+    id: 'rev_sheida_2',
+    author: 'Zahra Zare',
+    source: 'Google (Local Guide)',
+    rating: 5,
+    date: '6 months ago',
+    stylistMentioned: 'Haik',
+    serviceMentioned: 'Haircut & Styling',
+    content:
+      'I had a great experience today at Sheida Hair Studio! Haik cut my hair and did an amazing job. He was very professional, attentive, and really understood what I wanted. The whole experience was smooth and comfortable, and I’m really happy with how my hair turned out. Highly recommend Haik and the team at Sheida Hair Studio! ❤️',
+    positivePoints: [
+      'Attentive master haircut',
+      'Understood vision perfectly',
+      'Smooth comfortable experience',
+    ],
+    ownerResponse:
+      'Thank you so much Zahra joon for taking the time to write such a kind review. We’re very happy you trusted Haik with your haircut and that you left feeling good about the result!',
+  },
+  {
+    id: 'rev_sheida_3',
+    author: 'Bahareh Sayyar',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '3 months ago',
+    stylistMentioned: 'Sheida',
+    serviceMentioned: 'Balayage, Highlighting & Blowdry',
+    content:
+      'Sheida is the best hairstylist I’ve worked with in Toronto over the past 20 years. She consistently demonstrates exceptional expertise and professionalism, and genuinely cares about her clients and the quality of her team’s work. She has built an amazing team, and every stylist I’ve seen there has been talented, skilled, and welcoming. I love everyone at Sheida Hair and left feeling fantastic!',
+    positivePoints: [
+      '20 years trusted experience',
+      'Exceptional quality',
+      'Genuinely caring team',
+    ],
+    ownerResponse:
+      'This honestly meant so much to read ❤️ Thank you for writing it with so much love, Bahareh joon. Sheida and the whole team will be so happy seeing this!',
+  },
+  {
+    id: 'rev_sheida_4',
+    author: 'Fahimeh',
+    source: 'Google (Local Guide)',
+    rating: 5,
+    date: '4 months ago',
+    stylistMentioned: 'Sheida',
+    serviceMentioned: 'Hair Color & Treatment',
+    content:
+      'I had such an amazing experience with Sheida! She colored my hair beautifully and paid so much attention to every detail. You can truly tell how talented and passionate she is. She was incredibly patient, took her time with me, and made sure everything turned out perfect. The salon itself is so chic, calm, and relaxing, and the whole staff is warm and welcoming.',
+    positivePoints: [
+      'Passionate attention to detail',
+      'Chic & calming studio',
+      'Patient master colorist',
+    ],
+    ownerResponse:
+      'Thank you so much Fahimeh joone khoshgel ❤️ This honestly meant so much coming from someone as talented and creative as you!',
+  },
+  {
+    id: 'rev_sheida_5',
+    author: 'Pooneh Kheiri',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '9 months ago',
+    stylistMentioned: 'Sheida',
+    serviceMentioned: 'Blonde Highlights & Color',
+    content:
+      'I’ve been dyeing my hair with Sheida for over 6 years now, and she’s the only person I trust to make my hair blonde with absolutely no damage. She is incredibly talented, super professional, and has the best personality, always so kind and welcoming. Her staff is just as professional and attentive. If you’re looking for someone who truly knows how to create beautiful blonde hair while keeping it healthy, Sheida is the one!',
+    positivePoints: [
+      '6+ years loyal client',
+      '100% damage-free blonde',
+      'Healthy hair guarantee',
+    ],
+    ownerResponse:
+      'Thank you so much Pooneh joon! The photo you shared is absolutely beautiful — your blonde looks so soft and radiant ✨',
+  },
+  {
+    id: 'rev_sheida_6',
+    author: 'Venus Etamadi',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '9 months ago',
+    stylistMentioned: 'Niloufar, Maryam & Sheida',
+    serviceMentioned: 'Hair Highlighting & Balayage',
+    content:
+      'I had such an amazing experience at Sheida Hair Studio. The team is truly talented and special thank you to Niloofar and Maryam and also Sheida Jun for working so hard and making my hair look absolutely beautiful. They were so kind, patient, and detail oriented. I left the salon feeling incredible. Highly recommend this place! 🤍',
+    positivePoints: [
+      'Dream team collaboration',
+      'Kind and detail-oriented',
+      'Confidence-boosting result',
+    ],
+    ownerResponse:
+      'Thank you so much Venus! We’re so happy you felt comfortable and cared for by Niloofar, Maryam, and Sheida. Hope to see you again soon.',
+  },
+  {
+    id: 'rev_sheida_7',
+    author: 'Shirin Nezhat',
+    source: 'Google (Local Guide)',
+    rating: 5,
+    date: '4 months ago',
+    stylistMentioned: 'Sheida Team',
+    serviceMentioned: 'Balayage & Color Match',
+    content:
+      'I have had such a great experience at Sheida Hair Studio. This is by far the best salon I’ve been to. They always match the exact hair colour I want perfectly. The team is incredibly talented, professional, and so welcoming and kind. The studio itself is absolutely gorgeous — modern, neutral, and beautifully designed with so much attention to detail.',
+    positivePoints: [
+      'Exact color matching',
+      'Modern neutral design',
+      'Welcoming and kind team',
+    ],
+    ownerResponse:
+      'Thank you so much Shirin joon ❤️ Loved seeing you at the salon and thank you for your kind words!',
+  },
+  {
+    id: 'rev_sheida_8',
+    author: 'Tasneem H.',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '1 year ago',
+    stylistMentioned: 'Haik & Nima',
+    serviceMentioned: 'Haircut & Espresso Hospitality',
+    content:
+      'I’m deeply grateful for Sheida Hair Studio. From the moment you walk in, you’re welcomed with genuine warmth and treated like family. Their professionalism, kindness, and attention to detail truly set them apart. I’ve had the pleasure of seeing Haik for a haircut twice now, and each time he took the time to really listen while offering honest, thoughtful advice. Oh, and Nima makes amazing coffee! ☕',
+    positivePoints: [
+      'Treated like family',
+      'Thoughtful honest advice',
+      'Nima’s artisan espresso',
+    ],
+    ownerResponse:
+      'Tasneem, thank you from the bottom of my heart for your kind words and amazing energy! Can’t wait to welcome you back again soon! ☕✨',
+  },
+  {
+    id: 'rev_sheida_9',
+    author: 'Mahsa Sharifi',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '2 months ago',
+    stylistMentioned: 'Hannah & Sheida',
+    serviceMentioned: 'Platinum Blonde Transformation',
+    content:
+      'I had an amazing experience at this hair salon! The staff were incredibly professional, friendly, and attentive. I went in for a hair color transformation, and they truly exceeded my expectations. The color turned out exactly how I wanted—beautiful, vibrant, and perfectly blended. Thanks my dear Hannah for taking the time to understand my hair type. Specially thanks to Sheida for making this convenient atmosphere! ❤️',
+    positivePoints: [
+      'Exceeded expectations',
+      'Flawlessly blended platinum',
+      'Attentive to hair type',
+    ],
+    ownerResponse:
+      'Thank you so much Mahsa joon! We’re so glad you love your transformation and felt right at home with Hannah and Sheida.',
+  },
+  {
+    id: 'rev_sheida_10',
+    author: 'Maha Changez',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '11 months ago',
+    stylistMentioned: 'Haik',
+    serviceMentioned: 'Haircut & Blowout for South Asian Hair',
+    content:
+      'Got a haircut by Haik at Sheida Hair Studio. He was absolutely amazing. Did better than what I had expected. There are only a few people in Toronto that can do justice to "desi" (South Asian) thick hair. He was amazing. Highly highly recommended! Also the blowout was terrific!',
+    positivePoints: [
+      'Desi / South Asian hair expert',
+      'Terrific voluminous blowout',
+      'Exceeded high expectations',
+    ],
+  },
+  {
+    id: 'rev_sheida_11',
+    author: 'Maryam Mirhoseini',
+    source: 'Google (Verified Review)',
+    rating: 5,
+    date: '1 year ago',
+    stylistMentioned: 'Sheida & Parisa',
+    serviceMentioned: 'Highlights & Hair Botox Treatment',
+    content:
+      'I visited Sheida Beauty Salon last December to get highlights, and my hair turned out exactly the way I wanted—beautiful and without damage. A few months later, I decided to try botox and protein treatments with Parisa, and the results were amazing. My hair became soft, smooth, and healthy-looking. Highly recommend them!',
+    positivePoints: [
+      'No-damage highlights',
+      'Hair botox protein result',
+      'Soft and healthy hair',
+    ],
+  },
+];
+
+export const INITIAL_BOOKINGS: BookingInquiry[] = [
+  {
+    id: 'SH-9021',
+    name: 'Golrokh Amini',
+    phone: '(416) 555-0188',
+    email: 'golrokh.amini@example.com',
+    preferredStylist: 'Sheida (Founder & Master Colorist)',
+    serviceCategory: 'Bleach & Full Blonding Transformation',
+    preferredDate: '2026-09-23',
+    preferredTime: '11:00 AM',
+    notes: 'Dark brunette hair, requested a consultation and strand test before full platinum blonde lift.',
+    status: 'pending',
+    createdAt: new Date(Date.now() - 1000 * 60 * 35).toISOString(),
+  },
+  {
+    id: 'SH-9020',
+    name: 'Tara Zobeiri',
+    phone: '(647) 555-3921',
+    email: 'tara.zobeiri@example.com',
+    preferredStylist: 'Haik (Master Stylist & Precision Cutting)',
+    serviceCategory: 'Haircut & Blowdry with Haik',
+    preferredDate: '2026-09-24',
+    preferredTime: '02:00 PM',
+    notes: 'Long wavy hair. Wanting butterfly framing layers and curtain bangs.',
+    status: 'confirmed',
+    createdAt: new Date(Date.now() - 1000 * 60 * 120).toISOString(),
+  },
+  {
+    id: 'SH-9019',
+    name: 'Sanam Abasi',
+    phone: '(416) 555-7744',
+    email: 'sanam.abasi@example.com',
+    preferredStylist: 'Niloufar (Nisa / Balayage Specialist)',
+    serviceCategory: 'Signature Dimensional Balayage',
+    preferredDate: '2026-09-22',
+    preferredTime: '01:30 PM',
+    notes: 'Mushroom blonde balayage with Milbon 5-step Japanese moisture treatment.',
+    status: 'completed',
+    createdAt: new Date(Date.now() - 1000 * 60 * 1440 * 2).toISOString(),
+  },
+];
