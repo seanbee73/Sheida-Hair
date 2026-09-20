@@ -446,7 +446,7 @@ export const INITIAL_PORTFOLIO: PortfolioItem[] = [
     image: '/portfolio/platinum_bleach.jpg',
     galleryImages: [
       '/portfolio/platinum_bleach.jpg',
-      'https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=1200',
+      '/portfolio/platinum_bleach_gallery2.jpg',
     ],
     clientHairType: 'Fine, delicate hair desiring all-over icy platinum blonde',
     technique: 'Pre-bleach test + low-volume controlled lift + Bond Builder + pearlescent gloss',

@@ -53,7 +53,21 @@ export default function App() {
   const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>(() => {
     try {
       const saved = localStorage.getItem('the_maze_portfolio');
-      return saved ? JSON.parse(saved) : INITIAL_PORTFOLIO;
+      if (saved) {
+        const parsed: PortfolioItem[] = JSON.parse(saved);
+        return parsed.map((item) => {
+          const defaultItem = INITIAL_PORTFOLIO.find((p) => p.id === item.id);
+          if (defaultItem) {
+            return {
+              ...item,
+              image: defaultItem.image,
+              galleryImages: defaultItem.galleryImages,
+            };
+          }
+          return item;
+        });
+      }
+      return INITIAL_PORTFOLIO;
     } catch {
       return INITIAL_PORTFOLIO;
     }
