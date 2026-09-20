@@ -135,12 +135,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$100+',
     duration: '90 mins',
     description:
-      'Precise single-process root color application for 100% seamless gray coverage or base tone maintenance that seamlessly matches mid-lengths.',
+      'Root color application for new growth only, designed to refresh your base and blend regrowth. Blowdry is not included and may be added separately.',
     features: [
-      '100% opaque gray coverage',
-      'Scalp barrier soothing application',
-      'Accurate tone matching',
-      'Clarifying wash & shine rinse',
+      'New growth root color application',
+      'Base shade refresh & seamless blending',
+      'Effective gray coverage & tone match',
+      'Blowdry not included (add separately)',
     ],
   },
   {
@@ -150,12 +150,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$150+',
     duration: '2 hrs',
     description:
-      'Complete root regrowth coloring combined with an all-over tonal gloss glaze to refresh previous highlights, eliminate brassiness, and restore mirror shine.',
+      'Root color with a toner refresh to balance the overall shade and blend roots with pre-lightened lengths. Blowdry is not included and may be added separately.',
     features: [
-      'Root coverage + all-over glaze',
-      'Neutralizes brassy yellow tones',
-      'Adds luminous prismatic shine',
-      'Deep conditioning treatment',
+      'Root color + overall toner refresh',
+      'Balances shade from root to lengths',
+      'Seamless blend with pre-lightened hair',
+      'Blowdry not included (add separately)',
     ],
   },
   {
@@ -165,12 +165,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$400+',
     duration: '2.5 - 3.5 hrs',
     description:
-      'Targeted foil placement focusing on the crown, parting, and face-framing money pieces for an instant brightening boost between full color sessions.',
+      'Partial lightening focused on selected areas to add brightness and dimension. Bond builder may be added separately.',
     features: [
-      'Crown & T-zone foil placement',
-      'Illuminating face-frame accents',
-      'Custom toning included',
-      'Gentle lifting formula',
+      'Targeted placement on selected areas',
+      'Added brightness & soft dimension',
+      'Custom blended tone & clean lift',
+      'Bond builder option available separately',
     ],
   },
   {
@@ -180,12 +180,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$300+',
     duration: '3.5 - 5 hrs',
     description:
-      'Custom vibrant shades, smoky lilacs, rose gold, or multi-tonal creative pastels formulated with gentle pre-lightening and rich vivid pigments.',
+      'Custom vivid or creative color service. Pricing and timing depend on the desired shade, hair history, and lightening needed. Bond builder may be added separately.',
     features: [
-      'Vibrant / pastel custom formulation',
-      'Safe multi-level clean lift',
-      'Color longevity locking mask',
-      'Home color-care guidance',
+      'Custom vivid & creative shade design',
+      'Tailored to hair history & target tone',
+      'Lightening customized to desired depth',
+      'Bond builder option available separately',
     ],
   },
   {
@@ -195,12 +195,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$500+',
     duration: '4 - 6 hrs',
     description:
-      'Comprehensive restorative correction for uneven home dye, patchy tones, or color accidents from other salons. Sheida diagnoses every section with extreme care.',
+      'Corrective color service for uneven, unwanted, or complex color results. Final pricing and timing depend on consultation. Bond builder may be added separately.',
     features: [
-      'Band & patchiness removal',
-      'Tone neutralization & balancing',
-      'Intensive hair fiber reconstruction',
-      'Step-by-step restoration plan',
+      'Corrects uneven, unwanted, or complex color',
+      'In-depth personalized consultation',
+      'Customized restorative color formulation',
+      'Bond builder option available separately',
     ],
   },
   {
@@ -210,12 +210,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$1,000+',
     duration: 'Full Day',
     description:
-      'The ultimate total luxury transformation experience with Sheida personally. Includes all lightening, full-day dedicated chair, Milbon treatment, haircut, and premium styling.',
+      'Our premium custom color transformation for complex, multi-step results. Designed for major changes that may require advanced blonding, correction, toning, treatment, styling, or multiple stylists. Final pricing, timing, and included services are confirmed after consultation.',
     features: [
-      'Dedicated one-on-one master chair',
-      'Complete color & blonding redesign',
-      'Milbon 5-step luxury treatment',
-      'Precision cut & photoshoot styling',
+      'Premium multi-step custom transformation',
+      'Advanced blonding, correction & toning',
+      'Treatment, styling & multi-stylist support',
+      'Scope & pricing confirmed at consultation',
     ],
   },
   {
@@ -225,12 +225,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$0',
     duration: '30 mins',
     description:
-      'Complimentary one-on-one session to inspect hair elasticity, test porosity, review inspiration photos, and perform a real bleach strand test before booking.',
+      'In-person color consultation with strand test when needed to assess your hair condition, lift potential, and best service plan.',
     features: [
-      '100% complimentary & honest',
-      'Real bleach test on hair strand',
-      'Exact price & timing quote',
-      'Personalized tone recommendation',
+      'In-person assessment & consultation',
+      'Strand test performed when needed',
+      'Evaluates hair condition & lift potential',
+      'Customized service plan & clear roadmap',
     ],
     popular: true,
   },
@@ -243,12 +243,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$80+',
     duration: '60 mins',
     description:
-      'Expert haircut performed by Sheida Hair Studio senior styling artists. Includes relaxing wash, scalp massage, tailored layering, and blowout.',
+      'A haircut with wash and polished blow-dry finish, performed by one of our available stylists.',
     features: [
-      'Custom length & texture balance',
-      'Scalp massage shampoo',
-      'Face framing cut',
-      'Blowdry style finish',
+      'Custom tailored haircut',
+      'Relaxing wash & scalp care',
+      'Polished blow-dry finish',
+      'Performed by an available stylist',
     ],
   },
   {
@@ -258,12 +258,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$60+',
     duration: '45 mins',
     description:
-      'Voluminous round-brush blowout finished with beach waves, glam Hollywood curls, or pin-straight sleek glass styling with heat shield protection.',
+      'A professional wash and blow-dry with final styling using a curling iron or straightener for a polished finish. Haircut is not included.',
     features: [
-      'Long-lasting bounce & volume',
-      'Curling wand or flat iron finish',
-      'Frizz-taming serum application',
-      'Ideal for events & occasions',
+      'Professional wash & blow-dry',
+      'Curling iron or straightener styling',
+      'Long-lasting polished finish',
+      'Haircut not included',
     ],
   },
   {
@@ -273,11 +273,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$50+',
     duration: '30 mins',
     description:
-      'Invigorating scalp cleanse and conditioning treatment followed by a professional smooth blowdry with natural movement.',
+      'A professional wash and blow-dry finish for a clean, polished look. Haircut and hot tool styling are not included.',
     features: [
-      'Scalp cleansing & conditioning',
-      'Smooth round-brush styling',
-      'Lightweight thermal shield',
+      'Professional wash & conditioning',
+      'Smooth blow-dry finish',
+      'Clean & polished everyday look',
+      'Haircut & hot tools not included',
     ],
   },
 
@@ -289,12 +290,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$100',
     duration: '45 mins',
     description:
-      'World-renowned Japanese salon treatment that repairs the hair cortex with micro-collagen and botanical oils, restoring incredible silkiness and weightless shine.',
+      'A professional Japanese hair treatment by Milbon, designed to deeply hydrate, soften, and improve manageability. Blowdry is not included and may be added separately.',
     features: [
-      '5-step sequential layering system',
-      'Locks in post-color shine',
-      'Repairs chemical & thermal damage',
-      'Includes at-home booster vials',
+      'Professional Japanese Milbon treatment',
+      'Deep hydration & moisture infusion',
+      'Softens & improves manageability',
+      'Blowdry not included (add separately)',
     ],
     popular: true,
   },
@@ -305,12 +306,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$400+',
     duration: '2.5 - 3.5 hrs',
     description:
-      'Eliminates 95% of frizz, seals compromised cuticles, and transforms unruly or coarse textures into glossy, wash-and-wear silk for 4 to 5 months.',
+      'A smoothing treatment designed to reduce frizz, add shine, and make hair easier to manage. Includes clarifying wash, keratin application, blow-dry, and flat iron sealing.',
     features: [
-      'Humidity-proof glass finish',
-      'Formaldehyde-safe premium formula',
-      'Cuts daily blowdry time in half',
-      'Lasts up to 5 months',
+      'Reduces frizz & enhances shine',
+      'Significantly improves manageability',
+      'Clarifying wash & keratin application',
+      'Blow-dry & precision flat iron sealing',
     ],
     popular: true,
   },
@@ -321,12 +322,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$400+',
     duration: '2.5 - 3.5 hrs',
     description:
-      'Intense non-chemical deep conditioning treatment packed with amino acids, caviar oil, and collagen that fills in damaged fiber gaps without altering your natural curl pattern.',
+      'A restorative treatment designed to soften, hydrate, and strengthen dry, dull, or chemically treated hair without straightening it.',
     features: [
-      'Restores elasticity & thickness',
-      'Zero harsh chemical fumes',
-      'Deep post-bleach recovery',
-      'Keeps natural curls intact & bouncy',
+      'Softens, hydrates & strengthens hair',
+      'Restores dry, dull or chemically treated strands',
+      'Non-straightening deep restorative formula',
+      'Enhances natural texture, shine & bounce',
     ],
     popular: true,
   },
@@ -337,12 +338,12 @@ export const INITIAL_SERVICES: HairService[] = [
     priceEstimate: '$85+',
     duration: '45 mins',
     description:
-      'Targeted moisture infusion with warm towel wrap and acupressure scalp massage to relieve dryness and bring dull locks back to vibrant health.',
+      'A restorative treatment designed to soften, hydrate, and strengthen dry, dull, or chemically treated hair without straightening it.',
     features: [
-      'Deep moisture mask',
-      'Aromatherapy warm towel wrap',
-      'Relaxing scalp stimulation',
-      'Silk gloss rinse',
+      'Softens, hydrates & strengthens hair',
+      'Restores dry, dull or processed locks',
+      'Non-straightening deep hydration formula',
+      'Leaves natural curl & texture intact',
     ],
   },
 ];
