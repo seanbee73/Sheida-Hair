@@ -59,7 +59,7 @@ export const AboutSalon: React.FC = () => {
 
       {/* Right Column: Salon Amenities & Comfort */}
       <div className="w-full lg:w-[50%] xl:w-[45%] flex flex-col bg-[#09090b]">
-        <div className="p-8 sm:p-12 lg:p-16 border-b border-white/5 flex-grow">
+        <div className="p-8 sm:p-12 lg:p-16 flex-grow">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-8 h-px bg-[#d8b485]"></div>
             <p className="text-[#d8b485] text-[10px] font-bold tracking-[0.2em] uppercase">
@@ -86,22 +86,6 @@ export const AboutSalon: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Bottom Imagery Grid */}
-        <div className="grid grid-cols-2 min-h-[160px]">
-          <div
-            className="bg-cover bg-center border-r border-white/5"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80')`,
-            }}
-          ></div>
-          <div
-            className="bg-cover bg-center"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80')`,
-            }}
-          ></div>
         </div>
       </div>
     </section>

@@ -651,23 +651,6 @@ export const STYLISTS_TEAM: StylistProfile[] = [
     rating: 4.9,
     reviewCount: 65,
   },
-  {
-    id: 'st_donya_nema',
-    name: 'Donya & Nema',
-    role: 'Guest Experience & Studio Management',
-    experience: 'Hospitality Leads',
-    languages: ['English', 'Persian'],
-    specialty: [
-      'Guest Hospitality',
-      'Artisan Coffee & Tea Service',
-      'Scheduling & Coordination',
-      'Care Consultations',
-    ],
-    bio: 'The welcoming heart of Sheida Hair Studio. Ensuring every client receives personalized attention, seamless appointments, and Nima’s famous delicious espresso from the moment they arrive.',
-    image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=600',
-    rating: 5.0,
-    reviewCount: 150,
-  },
 ];
 
 export const REAL_REVIEWS: ReviewItem[] = [
