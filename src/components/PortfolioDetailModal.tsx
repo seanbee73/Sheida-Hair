@@ -48,19 +48,29 @@ export const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
 
         {/* Scrollable Content */}
         <div className="overflow-y-auto flex-grow">
-          {/* Main Hero Image */}
-          <div className="relative aspect-[16/10] w-full bg-zinc-950 overflow-hidden border-b border-white/5">
+          {/* Main Hero Image with Full Face Visibility & Ambient Blur */}
+          <div className="relative w-full h-[400px] md:h-[500px] bg-zinc-950 overflow-hidden border-b border-white/5 flex items-center justify-center">
+            {/* Ambient Background */}
+            <img
+              src={currentImage}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-110 pointer-events-none"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-transparent to-black/30 pointer-events-none"></div>
+
+            {/* Main Uncropped Photo Display */}
             <img
               src={currentImage}
               alt={item.title}
-              className="w-full h-full object-cover"
+              className="relative z-10 max-h-full max-w-full object-contain mx-auto"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-transparent to-transparent opacity-60"></div>
-            <div className="absolute bottom-4 left-6 right-6">
-              <span className="text-[10px] font-mono text-[#d8b485] uppercase tracking-wider block mb-1">
+
+            <div className="absolute bottom-4 left-6 right-6 z-20 pointer-events-none">
+              <span className="text-[10px] font-mono text-[#d8b485] uppercase tracking-wider block mb-1 drop-shadow-sm">
                 Sheida Hair Studio
               </span>
-              <h2 className="text-2xl md:text-3xl font-medium text-white leading-tight">
+              <h2 className="text-2xl md:text-3xl font-medium text-white leading-tight drop-shadow-md">
                 {item.title}
               </h2>
             </div>
@@ -79,7 +89,7 @@ export const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
                       : 'border-white/10 opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={img} alt="Thumbnail" className="w-full h-full object-cover" />
+                  <img src={img} alt="Thumbnail" className={`w-full h-full object-cover ${item.imagePosition || 'object-top'}`} />
                 </button>
               ))}
             </div>

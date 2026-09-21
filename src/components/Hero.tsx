@@ -4,17 +4,22 @@ import { SALON_INFO } from '../data/salonData';
 export const Hero: React.FC = () => {
   return (
     <>
-      {/* Background Salon Atmosphere & Gradients */}
-      <div className="absolute top-0 left-0 w-full h-[100vh] min-h-[750px] z-[-1] pointer-events-none overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://ik.imagekit.io/kevfun/701538088_17925562293334933_821170900421080344_n.jpg')`,
-            backgroundPosition: 'center 35%',
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#09090b] via-[#09090b]/90 to-[#09090b]/40 hero-bg-gradient-r"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b]/60 hero-bg-gradient-t"></div>
+      {/* Background Salon Atmosphere & Video */}
+      <div className="absolute top-0 left-0 w-full h-[100vh] min-h-[750px] z-[-1] pointer-events-none overflow-hidden bg-[#09090b]">
+        <div className="absolute top-0 right-0 w-full md:w-[65%] lg:w-[55%] xl:w-[50%] h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/hero/hero_poster.jpg"
+            className="w-full h-full object-cover object-[center_12%] md:object-[center_10%]"
+          >
+            <source src="/hero/hero_video.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="absolute inset-0 hero-bg-gradient-r"></div>
+        <div className="absolute inset-0 hero-bg-gradient-t"></div>
       </div>
 
       {/* Hero Content */}

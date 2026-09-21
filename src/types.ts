@@ -40,6 +40,7 @@ export interface PortfolioItem {
   details: string;
   tags: string[];
   metrics: { label: string; value: string }[];
+  imagePosition?: string;
 }
 
 export interface StylistProfile {

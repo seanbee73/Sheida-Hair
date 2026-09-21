@@ -194,12 +194,29 @@ body.light,
   font-weight: 500 !important;
 }
 
-/* Hero gradient adjustment for light mode */
+/* Hero background gradients - Dark Mode */
+.hero-bg-gradient-r {
+  background: linear-gradient(to right, #09090b 0%, rgba(9, 9, 11, 0.95) 42%, rgba(9, 9, 11, 0.3) 62%, rgba(9, 9, 11, 0) 78%) !important;
+}
+.hero-bg-gradient-t {
+  background: linear-gradient(to top, #09090b 0%, rgba(9, 9, 11, 0) 25%, rgba(9, 9, 11, 0.25) 100%) !important;
+}
+
+/* Hero background gradients - Light Mode (Option 1: Asymmetrical Left-Side Scrim) */
 .light .hero-bg-gradient-r {
-  background: linear-gradient(to right, rgba(251,250,248,0.96) 0%, rgba(251,250,248,0.85) 55%, rgba(251,250,248,0.3) 100%) !important;
+  background: linear-gradient(to right, #fbfaf8 0%, rgba(251, 250, 248, 0.97) 42%, rgba(251, 250, 248, 0.3) 62%, rgba(251, 250, 248, 0) 78%) !important;
 }
 .light .hero-bg-gradient-t {
-  background: linear-gradient(to top, #fbfaf8 0%, transparent 60%, rgba(251,250,248,0.7) 100%) !important;
+  background: linear-gradient(to top, #fbfaf8 0%, rgba(251, 250, 248, 0) 25%, rgba(251, 250, 248, 0.15) 100%) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-gradient-r {
+    background: linear-gradient(to bottom, rgba(9, 9, 11, 0.65) 0%, rgba(9, 9, 11, 0.85) 55%, #09090b 100%) !important;
+  }
+  .light .hero-bg-gradient-r {
+    background: linear-gradient(to bottom, rgba(251, 250, 248, 0.7) 0%, rgba(251, 250, 248, 0.88) 55%, #fbfaf8 100%) !important;
+  }
 }
 
 @keyframes auraFadeUp {
