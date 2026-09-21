@@ -532,7 +532,7 @@ export const BookingRequestsManager: React.FC<BookingRequestsManagerProps> = ({
                       </a>
                       {b.email && (
                         <a
-                          href={`mailto:${b.email}?subject=The Maze Hair Salon - Appointment Confirmation&body=Hi ${encodeURIComponent(b.name)}, we received your request for ${encodeURIComponent(b.serviceCategory)} with ${encodeURIComponent(b.preferredStylist)}...`}
+                          href={`mailto:${b.email}?subject=Sheida Hair Studio - Appointment Confirmation&body=Hi ${encodeURIComponent(b.name)}, we received your request for ${encodeURIComponent(b.serviceCategory)} with ${encodeURIComponent(b.preferredStylist)}...`}
                           className="inline-flex items-center gap-1 px-2.5 py-1 bg-white/5 hover:bg-white/10 border border-white/10 text-zinc-300 hover:text-white rounded text-[11px] transition-colors"
                           title={b.email}
                         >

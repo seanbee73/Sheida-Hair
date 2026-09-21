@@ -58,7 +58,7 @@ export const PortfolioDetailModal: React.FC<PortfolioDetailModalProps> = ({
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-transparent to-transparent opacity-60"></div>
             <div className="absolute bottom-4 left-6 right-6">
               <span className="text-[10px] font-mono text-[#d8b485] uppercase tracking-wider block mb-1">
-                The Maze Hair Studio Portfolio
+                Sheida Hair Studio
               </span>
               <h2 className="text-2xl md:text-3xl font-medium text-white leading-tight">
                 {item.title}

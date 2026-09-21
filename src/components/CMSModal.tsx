@@ -164,7 +164,7 @@ export const CMSModal: React.FC<CMSModalProps> = ({
       technique: 'Custom layered cut & dimensional color',
       summary: '',
       details: '',
-      tags: ['Salon Style', 'The Maze'],
+      tags: ['Salon Style', 'Sheida Hair Studio'],
       metrics: [
         { label: 'Duration', value: '2 hrs' },
         { label: 'Longevity', value: '8 Weeks' },
