@@ -52,6 +52,7 @@ export interface StylistProfile {
   languages: string[];
   bio: string;
   image: string;
+  imagePosition?: string;
   rating: number;
   reviewCount: number;
 }

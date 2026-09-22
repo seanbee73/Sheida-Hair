@@ -1,4 +1,5 @@
 import React from 'react';
+import { Star } from 'lucide-react';
 import { STYLISTS_TEAM } from '../data/salonData';
 
 interface StylistsSectionProps {
@@ -39,10 +40,12 @@ export const StylistsSection: React.FC<StylistsSectionProps> = ({
                 <img
                   src={stylist.image}
                   alt={stylist.name}
+                  style={{ objectPosition: stylist.imagePosition || 'center' }}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
                 />
-                <div className="absolute bottom-3 left-3 bg-[#09090b]/90 border border-white/10 px-2.5 py-1 text-[9px] font-bold text-[#d8b485] flex items-center gap-1">
-                  <iconify-icon icon="solar:star-bold"></iconify-icon>
+                <div className="absolute bottom-3 left-3 bg-[#09090b]/90 border border-white/10 px-2.5 py-1 text-[9px] font-bold text-[#d8b485] flex items-center gap-1.5">
+                  <Star className="w-3 h-3 fill-[#d8b485] text-[#d8b485]" />
                   <span>{stylist.rating} ({stylist.reviewCount} reviews)</span>
                 </div>
               </div>
